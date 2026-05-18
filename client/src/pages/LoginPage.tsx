@@ -21,11 +21,11 @@ export default function LoginPage() {
     setLoading(true);
     try {
       const res = await authApi.login(form);
-      if (res.success && res.data) {
-        login(res.data.token, res.data.user);
-        toast.success(`Welcome back, ${res.data.user.name}!`);
-        navigate('/dashboard');
-      }
+     if (res.success && res.data) {
+  login(res.data.token, res.data.user);
+
+  window.location.href = '/dashboard';
+}
     } catch (err: any) {
       toast.error(err?.response?.data?.error ?? 'Login failed. Please try again.');
     } finally {
